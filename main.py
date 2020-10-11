@@ -1,5 +1,5 @@
 import pygame
-import math 
+import math
 import time
 
 pygame.init()
@@ -43,13 +43,13 @@ def doshit(screen, centre):
     print("Calculating")
     #centre = (int(SCREENX/2), int(SCREENY/2))
     #for x in range(-SCREENX, SCREENX, 1):
-    while x <= (SCREENX - centre[0]):
+    while x <= (SCREENX - centre[0]):                               #Type Functions here -- Note, math, automaticallty uses radians, math.sin(math.radians(x)) will return the degree value of sin(x)
         #y = int(math.tan(math.tan(x))*100)
         #y = int(math.sin(math.radians(3*x + 5)*x**2)*100)
         #y = int((x + 5*x)*math.sin(math.radians(x**2))/10)
         #y = int((x)*math.sin(math.radians(x)))
-        #y = int(math.sin(math.radians(x))*100)
-        y = int((0.01)*(x**2)-(3*x)+10)
+        y = int(math.sin(math.radians(x))*100)
+        #y = int((0.01)*(x**2)-(3*x)+10)
         if y < -100000:
             y = -100000
         if y > 100000:
@@ -110,7 +110,9 @@ while running:
         draw_axis(centre, screen)
     if not what and not what2:
         if CALC:
+            start = time.time()
             doshit(screen, centre)
+            print(time.time()-start)
         else:
             doothershit(screen, centre, data)
         what2 = True
